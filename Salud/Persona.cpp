@@ -90,20 +90,3 @@ class Persona {
 
     }
 };
-
-int main (){
-
-    Persona usuario;
-
-    usuario.pedirDatos();
-
-    usuario.mostrarPersona();
-
-    usuario.calcularImc();
-
-    usuario.mayorEdad();
-
-
-    return 0;
-
-}

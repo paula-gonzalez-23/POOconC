@@ -1,20 +1,22 @@
 #include <iostream>
-#include <Persona>
+#include "../Salud/Persona.cpp"
 using namespace std;
 
 
 class Inicio{
 
-    Persona usuario_1;
+    Persona usuario;
 
 };
 
 int main(){
 
-    usuario_1.pedirDatos();
-    usuario_1.mostrarPersona();
-    usuario_1.calcularImc();
-    usuario_1.mayorEdad();
+    Persona usuario;
+
+    usuario.pedirDatos();
+    usuario.mostrarPersona();
+    usuario.calcularImc();
+    usuario.mayorEdad();
 
     return 0;
 }
