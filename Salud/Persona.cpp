@@ -5,7 +5,7 @@ class Persona {
 
     //Atributos 
 
-    public:
+    private:
 
     string tipoDoc;
     int documento;
@@ -22,6 +22,19 @@ class Persona {
 
     }
 
+     //Accesores set para modificar y get para mostrar 
+
+    void settipoDoc(string _tipoDoc){
+
+        tipoDoc = _tipoDoc;
+
+    }
+
+    string gettipoDoc(){
+
+        return tipoDoc;
+
+    }
 
     //Metodos 
 
