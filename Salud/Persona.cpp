@@ -15,6 +15,10 @@ class Persona {
     double estatura;
     int edad;
     string sexo;
+    double pesoActual;
+    
+
+    public:
 
     //Constructor
 
@@ -22,7 +26,7 @@ class Persona {
 
     }
 
-     //Accesores set para modificar y get para mostrar 
+    //Accesores set para modificar y get para mostrar 
 
     void settipoDoc(string _tipoDoc){
 
@@ -34,6 +38,100 @@ class Persona {
 
         return tipoDoc;
 
+    }
+
+    void setdocumento(int _documento){
+
+        documento = _documento;
+
+    }
+
+    int getdocumento(){
+
+        return documento;
+
+    }
+
+    void setnombre(string _nombre){
+
+        nombre = _nombre;
+
+    }
+
+    string getnombre(){
+
+        return nombre;
+
+    }
+
+    void setapellido(string _apellido){
+
+        apellido = _apellido;
+
+    }
+
+    string getapellido(){
+
+        return apellido;
+
+    }
+
+    void setpeso(double _peso){
+
+        peso = _peso;
+
+    }
+
+    double getpeso(){
+
+        return peso;
+
+    }
+
+    void setestatura(double _estatura){
+
+        estatura = _estatura;
+
+    }
+
+    double getestatura(){
+        
+        return estatura;
+
+    }
+
+    void setedad(int _edad){
+
+        edad = _edad;
+
+    }
+
+    int getedad(){
+
+        return edad;
+    }
+
+    void setsexo(string _sexo){
+
+        sexo = _sexo;
+
+    }
+
+    string getsexo(){
+
+        return sexo;
+
+    }
+
+    void setpesoActual(double _pesoActual){
+
+        pesoActual = _pesoActual;
+    
+    }
+
+    double getpesoActual(){
+
+        return pesoActual;
     }
 
     //Metodos 
@@ -79,18 +177,9 @@ class Persona {
     }
 
     void calcularImc(){
+     
+        pesoActual = peso / ((estatura / 100.0) * (estatura / 100.0)); 
 
-        double pesoActual;
-
-        pesoActual = (peso/estatura/estatura);
-
-        if (pesoActual<20){
-            cout<<"El peso esta por debajo de lo ideal"<<endl;
-        }else if(20<=pesoActual>=25){
-            cout<<"El peso es ideal"<<endl;
-        }else if(pesoActual>25){
-            cout<<"Sobrepeso"<<endl;
-        }
     }
 
     void mayorEdad(){
