@@ -161,6 +161,7 @@ class Persona {
 
         cout<<"Ingrese su sexo: "<<endl;
         cin>>sexo;
+
     }
 
     void mostrarPersona(){
