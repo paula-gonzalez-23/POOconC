@@ -2,7 +2,7 @@
 #include "Persona.cpp"
 using namespace std;
 
-class Empleado : private Persona {
+class Empleado : public Persona {
 
     //Atributos
 
@@ -84,7 +84,7 @@ class Empleado : private Persona {
         return fecha_nacimiento;
     }
 
-     void setfecha_actual(int _fecha_actual){
+    void setfecha_actual(int _fecha_actual){
 
         fecha_actual = _fecha_actual;
 

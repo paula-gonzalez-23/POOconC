@@ -185,11 +185,5 @@ class Persona {
 
     void mayorEdad(){
 
-        if (edad<18){
-            cout<<"Es menor de edad"<<endl;
-        }else{
-            cout<<"Es mayor de edad"<<endl;
-        }
-
     }
 };

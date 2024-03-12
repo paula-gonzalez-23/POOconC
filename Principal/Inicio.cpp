@@ -6,19 +6,19 @@ using namespace std;
 
 class Inicio{
 
-    Persona1 usuario;
+    Persona usuario;
     Empleado usuario1;
 
 };
 
 int main(){
 
-    Persona1 usuario;
+    Persona usuario;
     Empleado usuario1;
 
     usuario.pedirDatos();
 
-    cout<<"Los datos ingresados anteriormente son"<<endl;
+    cout<<"Los datos ingresados anteriormente son: "<<endl;
 
     usuario.mostrarPersona();
     usuario.calcularImc();
@@ -39,7 +39,7 @@ int main(){
     
     usuario1.pedirDatos();
     usuario1.calcularHonorarios();
-    usuario1.mayorEdad(2023,2006);
+    usuario1.mayorEdad(2006,2023);
     usuario1.mostrarPersona();
 
 
