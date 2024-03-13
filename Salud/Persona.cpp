@@ -185,5 +185,12 @@ class Persona {
 
     void mayorEdad(){
 
+        if (pesoActual<20){
+            cout<<"Peso bajo"<<endl;
+        }else if(20<= pesoActual && pesoActual <=25){
+            cout<<"Peso ideal"<<endl;
+        }else {
+            cout<<"Sobrepeso"<<endl;
+        }
     }
 };

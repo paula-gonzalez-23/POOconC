@@ -7,14 +7,12 @@ using namespace std;
 class Inicio{
 
     Persona usuario;
-    Empleado usuario1;
 
 };
 
 int main(){
 
     Persona usuario;
-    Empleado usuario1;
 
     usuario.pedirDatos();
 
@@ -37,11 +35,5 @@ int main(){
 
     usuario.mayorEdad();
     
-    usuario1.pedirDatos();
-    usuario1.calcularHonorarios();
-    usuario1.mayorEdad(2006,2023);
-    usuario1.mostrarPersona();
-
-
     return 0;
 }

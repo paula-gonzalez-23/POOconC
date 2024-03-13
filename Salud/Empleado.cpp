@@ -20,7 +20,7 @@ class Empleado : public Persona {
 
     //Constructor 
 
-    Empleado (){
+    Empleado (): Persona (){
 
     }
 
