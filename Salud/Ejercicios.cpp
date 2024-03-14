@@ -23,7 +23,7 @@ int main(){
     }
 
     auto it = next(frutas.begin(),2);
-
+    
     frutas.insert(it,"arandanos");
 
     for (const auto & elemento: frutas){
