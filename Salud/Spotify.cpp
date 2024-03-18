@@ -2,33 +2,82 @@
 #include <list>
 using namespace std;
 
-int main (){
+class Cancion {
 
-    
-    int contador = 0;
+    //Determinamos los atributos 
 
-    list<list<string>>canciones = {
+    private:
 
-        {"Reggaeton"}, //Categoria 0
-        {"Salsa"}, //Categoria 1
-        {"Vallenato"}, //Categoria 2
-        {"Musica Popular"}, //Categoria 3
-        {"Rock"} //Categoria 4
+    string titulo;
+    Cancion* siguiente;
 
-    };
+    //Determinamos el constructor, accesores y metodos
 
-    cout<<"Categorias Disponibles"<<endl;
+    public:
 
-    for (const auto & categoria : canciones){
-        cout<<contador<<". ";
-        for (const auto & cancion : categoria){
-            cout<<cancion<<" ";
-        }
+    //Constructor con parametros
 
-        cout<<endl;
+    Cancion (string _titulo){
+
+        titulo = _titulo;
+        siguiente = nullptr;
         
-        contador ++;
     }
+
+    //Metodos
+
+    //Metodo para establecer la siguiente cancion de la lista
+
+    void asignarSiguiente(Cancion* siguienteCancion){
+
+        siguiente = siguienteCancion;
+    }
+};
+
+class ListaCanciones{
+
+    //Determinamos los atributos
+
+    private:
+
+    Cancion* primerCancion;
+    Cancion* ultimaCancion;
+
+    //Determinamos el constructor, accesores y metodos
+
+    public:
+
+    //Constructor 
+
+    ListaCanciones(){
+
+        primerCancion = nullptr;
+        ultimaCancion = nullptr;
+    }
+
+    //Metodos
+
+    void agregarCancion(const Cancion& cancion){
+        //Se crea una instancia de la clase cancion, llamando al constructor de copia 
+        Cancion* nuevaCancion = new Cancion(cancion);
+        //Se verifica si la lista esta vacia 
+        if (!primerCancion){
+            //Si esta vacia, se establece la nueva cancion como la primera y la ultima
+            primerCancion = nuevaCancion;
+            ultimaCancion = nuevaCancion;
+        }else {
+            //Si no esta vacia, se agrega al final de la lista
+            //Se establece la nueva cancion como la siguiente de la ultima cancion actual
+            ultimaCancion -> asignarSiguiente(nuevaCancion);
+            //Se actualiza el puntero de la ultima cancion para que apunte a la nueva cancion
+            ultimaCancion = nuevaCancion;
+        }
+    }
+
+
+}
+
+int main (){
 
     return 0;
 
