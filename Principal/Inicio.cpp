@@ -13,9 +13,9 @@ class Inicio{
 int main(){
 
     Persona usuario;
-
+    
     usuario.pedirDatos();
-
+   
     cout<<"Los datos ingresados anteriormente son: "<<endl;
 
     usuario.mostrarPersona();
