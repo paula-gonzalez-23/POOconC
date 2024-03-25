@@ -2,6 +2,8 @@
 #include <list>
 using namespace std;
 
+//Este spotify es el que yo habia hecho antes de la clase 
+
 class Cancion {
 
     //Determinamos los atributos 

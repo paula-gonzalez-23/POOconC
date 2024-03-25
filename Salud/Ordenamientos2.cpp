@@ -9,7 +9,7 @@ void ordBur(int arr[], int n){
         for(int j=0; j<n-1; j++){
             int temp = arr[j];
             arr[j]=arr[j+1];
-            arr[j+1=temp;]
+            arr[j+1]=temp;
         }
     }
 }
@@ -44,7 +44,7 @@ struct Node{
 
 //Funcion para insertar un nodo al principio de la lista
 
-void insertarInicioLista(Node* &head, int val){
+void insertarInicioList(Node* &head, int val){
     Node* nuevoNodo = new Node(val);
     nuevoNodo->next=head;
     head = nuevoNodo;
@@ -62,7 +62,7 @@ void imprimirLista(Node* head){
 
 //Funcion para ordenar la lista
 
-void ordenarLista(Node* &head){
+void ordeLista(Node* &head){
     if (head==nullptr || head->next==nullptr)
     return;
     Node* sorted = nullptr;
@@ -82,24 +82,25 @@ void ordenarLista(Node* &head){
             temp->next=current;
         }
     }
+    head = sorted;
 };
 
-int main{
+int main(){
 
     Node* head = nullptr;
     
-    insertarInicioLista(head,50);
-    insertarInicioLista(head,160);
-    insertarInicioLista(head,5);
-    insertarInicioLista(head,1);
+    insertarInicioList(head,50);
+    insertarInicioList(head,160);
+    insertarInicioList(head,5);
+    insertarInicioList(head,1);
 
     cout << "La lista original es: "<<endl;
     imprimirLista(head);
-    ordenarLista(head);
+    ordeLista(head);
     cout << "La lista ordenada es: "<<endl;
     imprimirLista(head);
-
-    retunr 0;
+    
+    return 0;
 
 }
 

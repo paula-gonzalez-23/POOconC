@@ -2,6 +2,8 @@
 #include <list>
 using namespace std;
 
+//Lista Enlazada 
+
 struct Node {
 
     string data;

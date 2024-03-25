@@ -3,6 +3,8 @@
 #include <algorithm>
 using namespace std;
 
+//Este spotify es el que hice de acuerdo a la clase, arregle lo que estaba mal y agregue lo indicado
+
 class ListaEnlazada {
 
     private:
@@ -141,8 +143,9 @@ class Spotify2 {
                     cout << "La cancion no se puede agregar a  Lista Paula porque no existe en Lista General" << endl;
                 }
             }
-            agregarCancionPaula(cancion);
         }
+
+        listaPaula.sort();
     }
 
     void llenarListaPaula2(){
@@ -175,13 +178,14 @@ int main() {
 
     user1.construirListaEnlazada(listaPaula, listaPaula2);
 
+
     cout<<"La lista General de canciones es: ";
     for (string cancion : listaGeneral){
         cout<<cancion<<", ";
     }
     cout<<endl;
 
-    cout<<"La lista Paula es: ";
+    cout<<"La lista Paula Ordenada es: ";
     for (string cancion : listaPaula){
         cout<<cancion<<", ";
     }
