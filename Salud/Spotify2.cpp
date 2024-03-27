@@ -171,7 +171,7 @@ class Spotify2 {
 
             string nombreCancion = cancion.substr(0, pos1);
             string nombreArtista = cancion.substr(pos1 + 1, pos2 - pos1 - 1);
-            auto it = find(listaGeneral.begin(), listaGeneral.end(), cancion);
+            auto it = find(listaGeneral.begin(), listaGeneral.end(), make_pair(nombreCancion + " - " + nombreArtista, duracion));
             if (it != listaGeneral.end()){
                 listaPaula.push_back(cancion);
                 cout << cancion << " - La cancion se ha agregado satisfactoriamente a la lista Paula" << endl;
@@ -242,7 +242,7 @@ int main() {
 
     cout<<"La lista General de canciones es: ";
     for (const auto& cancion : listaGeneral){
-        cout << cancion.first << " - Duracion: " << cancion.second << "minutos" << endl;
+        cout << cancion.first << " - Duracion: " << cancion.second << " minutos" << endl;
     }
     cout<<endl;
 
@@ -252,7 +252,7 @@ int main() {
     }
     cout<<endl;
 
-    cout<<"La lista Paula2 Original es: ";
+    cout<<"La lista Paula2 Ordenada es: ";
     for (string cancion : listaPaula2){
         cout<<cancion<<", ";
     }
