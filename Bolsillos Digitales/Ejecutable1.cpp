@@ -31,7 +31,7 @@ int main (){
                 user.verMovimientos();
                 break;
             case 4:
-                cout << "Gracias por usar Nequi. Nos vemos pronto" << endl;
+                cout << "Gracias por usar Daviplata. Nos vemos pronto" << endl;
                 break;
             default:
                 cout << "Opcion no valida" << endl;

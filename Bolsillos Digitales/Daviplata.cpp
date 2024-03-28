@@ -53,7 +53,7 @@ class Daviplata {
         cout << "2. Realizar pagos" << endl;
         cout << "3. Ver movimientos" << endl;
         cout << "4. Salir" << endl;
-        cout << "Saldo disponible: " << saldo << endl;
+        cout << "Saldo disponible $: " << saldo << endl;
     }
 
     bool llenarUsuarios(){
@@ -133,9 +133,9 @@ class Daviplata {
         cout << "Ingrese el monto que desea recargar con efectivo" << endl;
         cin >> monto;
         saldo += monto;
-        cout << "Recarga con efectivo exitosa. Saldo actual: " << saldo << endl;
+        cout << "Recarga con efectivo exitosa. Saldo actual $: " << saldo << endl;
 
-        agregarMovimiento("Recarga con efectivo", monto);
+        agregarMovimiento("Recarga con efectivo $: ", monto);
     }
 
     void recargarOtrosBancos(){
@@ -144,27 +144,27 @@ class Daviplata {
         string numerocel, renumerocel;
         double monto;
 
-        cout << "Si deseas recargar tu nequi desde pse, seleccione una opcion" << endl;
+        cout << "Si deseas recargar tu nequi desde pse, seleccione una opcion: " << endl;
         cout << "1. Siguiente" << endl;
         cout << "2. Salir" << endl;
-        cout << "Ingrese su opcion" << endl;
+        cout << "Ingrese su opcion: " << endl;
         cin >> opcion;
 
         switch (opcion){
             case 1:
-                cout << "Ingrese el numero de celular" << endl;
+                cout << "Ingrese el numero de celular: " << endl;
                 cin >> numerocel;
-                cout << "Confirma el numero de ceular" << endl;
+                cout << "Confirma el numero de ceular: " << endl;
                 cin >> renumerocel;
-                cout << "Ingresa la cantidad que deseas recargar" << endl;
+                cout << "Ingresa la cantidad que deseas recargar: " << endl;
                 cin >> monto;
                 saldo += monto;
-                cout << "Elige el tipo de persona" << endl;
+                cout << "Elige el tipo de persona: " << endl;
                 cout << "1. Natual" << endl;
                 cout << "2. Juridica" << endl;
                 cout << "Ingresa tu opcion" << endl;
                 cin >> opcion1;
-                cout << "Elige el banco desde donde deseas hacer la recarga" << endl;
+                cout << "Elige el banco desde donde deseas hacer la recarga: " << endl;
                 cout << "1. Banco AV Villas" << endl;
                 cout << "2. Banco BBVA Colombia SA" << endl;
                 cout << "3. Bancolombia" << endl;
@@ -174,8 +174,8 @@ class Daviplata {
                 cin >> banco;
 
                 if (numerocel == renumerocel){
-                    cout << "La recarga se ha realizado con exito. Saldo actual: " << saldo << endl;
-                    agregarMovimiento("Recarga desde otos bancos", monto);
+                    cout << "La recarga se ha realizado con exito. Saldo actual $: " << saldo << endl;
+                    agregarMovimiento("Recarga desde otos bancos $: ", monto);
                 }else {
                     cout << "El numero de confirmacion no coincide con el ingresado" << endl;
                     cout << "Por su seguridad vuelva a ingresar todos los datos" << endl;
@@ -194,28 +194,131 @@ class Daviplata {
 
     void realizarPagos(){
 
-        int opcion, opcion1;
+        int opcion, opcion1, opcion2, opcion3, opcion4;
+        string referencia, codigobarras;
+        double valor, valor1, valor2, valor3;
 
         cout << "Elige la opcion de pago que deseas realizar: " << endl;
         cout << "1. Pagar recibos publicos" << endl;
         cout << "2. Pagar con codigo de barras" << endl;
-        cout << "3. Pagar empresas por catalogo" << endl;
-        cout << "Ingresa su opcion" << endl;
+        cout << "Ingrese su opcion" << endl;
         cin >> opcion;
 
         switch(opcion){
             case 1:
-                cout << "Elige el recibo publico que deseas pagar" << endl;
+                cout << "Elige el recibo publico que deseas pagar: " << endl;
                 cout << "1. Pagar energia" << endl;
-                cout << "2. Pagar luz" << endl;
+                cout << "2. Pagar gas" << endl;
                 cout << "3. Pagar agua" << endl;
-                cout << "Ingrese su opcion" << endl;
+                cout << "Ingrese su opcion: " << endl;
                 cin >> opcion1;
 
                 switch (opcion1){
                     case 1:
+                        cout << "Elige la empresa a la que vas a pagar: " << endl;
+                        cout << "1. Enel Codensa" << endl;
+                        cout << "2. EPM" << endl;
+                        cout << "3. Electricaribe" << endl;
+                        cout << "Ingrese su opcion" << endl;
+                        cin >> opcion2;
+
+                        if (opcion2 == 1 || opcion2 == 2 || opcion2 == 3){
+                            cout << "Ingresa el numero de referencia de su recibo: " << endl;
+                            cin >> referencia;
+                            cout << "Ingresa el valor del recibo: " << endl;
+                            cin >> valor;
+
+                            if (valor > saldo){
+                                cout << "Fondos insuficientes" << endl;
+                            } else {
+                                saldo -= valor;
+                                cout << "Pago exitoso. Saldo actual: " << saldo << endl;
+                                agregarMovimiento("Pago de energia $: ",valor);
+                            }
+                        } else {
+                            cout << "Opcion no valida" << endl;
+                        }
+                        break;
+                    
+                    case 2:
+                        cout << "Elige la empresa a la que vas a pagar: " << endl;
+                        cout << "1. Vanti" << endl;
+                        cout << "2. Promigas" << endl;
+                        cout << "3. Gases del caribe" << endl;
+                        cout << "4. Alcanos" << endl;
+                        cout << "Ingrese su opcion: " << endl;
+                        cin >> opcion3;
+
+                        if (opcion3 == 1 || opcion3 == 2 || opcion3 == 3 || opcion3 ==4){
+                            cout << "Ingresa el numero de referencia de su recibo: " << endl;
+                            cin >> referencia;
+                            cout << "Ingresa el valor del recibo: " << endl;
+                            cin >> valor1;
+
+                            if (valor1 > saldo){
+                                cout << "Fondos insuficientes" << endl;
+                            } else {
+                                saldo -= valor1;
+                                cout << "Pago exitoso. Saldo actual: " << saldo << endl;
+                                agregarMovimiento("Pago de gas $: ",valor1);
+                            }
+                        } else {
+                            cout << "Opcion no valida" << endl;
+                        }
+                        break;
+                    
+                    case 3: 
+                        cout << "Elige la empresa a la que vas a pagar: " << endl;
+                        cout << "1. Empresa de acueducto y alcantarillado de bogota (EAAB)" << endl;
+                        cout << "2. EPM" << endl;
+                        cout << "3. Acueducto de Bucaramanga" << endl;
+                        cout << "4. Emcali" << endl;
+                        cout << "Ingrese su opcion: " << endl;
+                        cin >> opcion4;
+
+                        if (opcion4 == 1 || opcion4 == 2 || opcion4 == 3 || opcion4 ==4){
+                            cout << "Ingresa el numero de referencia de su recibo: " << endl;
+                            cin >> referencia;
+                            cout << "Ingresa el valor del recibo: " << endl;
+                            cin >> valor2;
+
+                            if (valor2 > saldo){
+                                cout << "Fondos insuficientes" << endl;
+                            } else {
+                                saldo -= valor2;
+                                cout << "Pago exitoso. Saldo actual: " << saldo << endl;
+                                agregarMovimiento("Pago de agua $: ",valor2);
+                            }
+                        } else {
+                            cout << "Opcion no valida" << endl;
+                        }
+                        break;
+
+                    default:
+                        cout << "Ingrese una opcion valida" << endl;
+                        break;
                 }
+                break;
             
+            case 2:
+                cout << "Ingrese el numero (ejemplo code128): " << endl;
+                cin >> codigobarras;
+
+                cout << "Ingresa el valor que vas a pagar: " << endl;
+                cin >> valor3;
+
+                if (valor3 > saldo){
+                    cout << "Fondos insuficientes" << endl;
+                } else {
+                    saldo -= valor3;
+                    cout << "Pago exitoso. Saldo actual $: " << saldo << endl;
+                    agregarMovimiento("Pago por codigo de barras $: ",valor3);
+                }
+                break;
+
+            default:
+                cout << "Opcion no valida" << endl;
+                break;
         }
     }
 

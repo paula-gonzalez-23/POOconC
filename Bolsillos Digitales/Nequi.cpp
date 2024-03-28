@@ -346,6 +346,7 @@ class Nequi {
         saldo -= valor;
         Bolsillos.push_back({nombreBolsillo,{valor}});
         cout << "Ahora tu bolsillo " << nombreBolsillo << " guarda el valor de " << valor << endl;
+        agregarMovimiento("Se guardo plata en el bolsillo", valor);
        }
         
     }
@@ -374,8 +375,8 @@ class Nequi {
                 }else {
                     saldo -= monto;
                     cout << "Retiro exitoso. Saldo actual: " << saldo << endl;
+                    agregarMovimiento("Se retiro por cajero", monto);
                 }
-                agregarMovimiento("Se retiro por cajero", monto);
                 break;
             
             case 2: 
@@ -389,8 +390,8 @@ class Nequi {
                 }else {
                     saldo -= monto;
                     cout << "Retiro exitoso. Saldo actual: " << saldo << endl;
+                    agregarMovimiento("Se retiro por punto fisico", monto);
                 }
-                agregarMovimiento("Se retiro por punto fisico", monto);
                 break;
             
             default:
