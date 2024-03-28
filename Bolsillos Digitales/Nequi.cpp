@@ -5,13 +5,26 @@
 #include <string>
 using namespace std;
 
-class Nequi {
+struct Usuario {
+    string numcel;
+    int clave;
+};
 
-    //Atributos
+class Nequi {
 
     private:
 
-    list<pair<string, int>>Usuarios;
+    vector<Usuario> usuarios;
+
+    bool usuarioExiste(const string& numcel, int clave) const{
+        for (const Usuario& usuario : usuarios){
+            if (usuario.numcel == numcel && usuario.clave == clave){
+                return true;
+            }
+        }
+        return false;
+    }
+
     list<pair<string, double>>Movimientos;
     vector<pair<string, vector<double>>>Bolsillos;
     double saldo = 0;
@@ -20,16 +33,6 @@ class Nequi {
 
     Nequi(){
 
-    }
-
-    //Metodos set para modificar y get para mostrar
-
-    void agregarUsuario (const pair<string, int>& usuario){
-        Usuarios.push_back(usuario);
-    }
-
-    const list<pair<string, int>>& getUsuarios() const{
-        return Usuarios;
     }
 
     void agregarMovimiento (const string& movimiento, double monto){
@@ -46,11 +49,8 @@ class Nequi {
         return saldo;
     }
 
-    //Funciones
-
     void menu(){
 
-        cout << "Bienvenido a Nequi" << endl;
         cout << "Menu" << endl;
         cout << "1. Recargar Nequi" << endl;
         cout << "2. Colchon" << endl;
@@ -63,19 +63,23 @@ class Nequi {
 
     }
 
-    void llenarUsuarios(){
+    bool llenarUsuarios(){
+
+        usuarios.push_back({"3128991399", 1234});
+
         string entrada, numcel;
         int clave;
-        cout << "Ingrese el numero de celular y clave (ejemplo: numero de celular-clave), escriba fin para salir" << endl;
+
+        cout << "Ingrese el numero de celular y clave (ejemplo numero de celular-clave), escriba fin para salir" << endl;
         while (true){
             getline(cin,entrada);
 
             if (entrada == "fin"){
                 break;
             }
-            
+
             size_t pos = entrada.find('-');
-            if (pos == string :: npos){
+            if (pos == string::npos){
                 cout << "Formato de entrada incorrecto. Debe ser 'numero de celular-clave'. Intente de nuevo" << endl;
                 continue;
             }
@@ -89,14 +93,18 @@ class Nequi {
             }
 
             if (entrada.substr(pos + 1).length() != 4){
-                cout << "La clave de tener 4 digitos. Intente de nuevo" << endl;
+                cout << "La clave debe tener 4 digitos. Intente de nuevo" << endl;
                 continue;
             }
 
-            agregarUsuario(make_pair(numcel,clave));
-
-            cout << "Usuario agregado con exito" << endl;
+            if (usuarioExiste(numcel,clave)){
+                cout << "Acceso otorgado" << endl;
+                return true;
+            } else {
+                cout << "El usuario no existe" << endl;
+            }
         }
+        return false;
     }
 
     void recargarNequi (){
@@ -332,8 +340,14 @@ class Nequi {
        cout << "Ingrese el valor que desea guardar" << endl;
        cin >> valor;
 
+       if (valor > saldo){
+        cout << "Fondos insufientes" << endl;
+       } else {
+        saldo -= valor;
         Bolsillos.push_back({nombreBolsillo,{valor}});
         cout << "Ahora tu bolsillo " << nombreBolsillo << " guarda el valor de " << valor << endl;
+       }
+        
     }
 
     void sacarPlata(){

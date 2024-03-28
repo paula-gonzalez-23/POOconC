@@ -8,7 +8,10 @@ int main (){
 
     Nequi user;
 
-    user.llenarUsuarios();
+    if (!user.llenarUsuarios()){
+        cout << "El acceso fue denegado. Las credenciales no coinciden" << endl;
+        return 1;
+    }
 
     do {
         
